@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoLective – Beauty Coworking Hamburg | YOUR SPACE. YOUR TIME.</title>
+  <meta name="description" content="Vollausgestattete Räume für Beauty-Profis in Hamburg-Wandsbek. Hairstyling, Kosmetik, PMU, Nails — stundenweise, tagesweise oder monatlich. Selbstständig. Aber nicht allein.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #FAF7F2;
+      --bg-2:         #F2EAE0;
+      --bg-dark:      #1A1208;
+      --bg-dark-2:    #241A0E;
+      --text:         #1C1510;
+      --text-muted:   #7A6857;
+      --text-light:   #A89880;
+      --gold:         #C9A96E;
+      --gold-light:   #E8D5A3;
+      --gold-dark:    #8B6B2E;
+      --terra:        #B5694A;
+      --terra-light:  #D4937A;
+      --border:       rgba(139,107,69,0.13);
+      --border-dark:  rgba(139,107,69,0.28);
+      --radius:       12px;
+      --radius-lg:    20px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    nav.scrolled {
+      border-color: var(--border);
+      box-shadow: 0 2px 20px rgba(28,21,16,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-logo span { color: var(--gold-dark); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      padding: 10px 24px;
+      background: var(--text);
+      color: var(--bg);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border-radius: 100px;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+    .nav-cta:hover { background: var(--gold-dark); }
+    .nav-mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text);
+      padding: 4px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding: 96px 40px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      width: 100%;
+    }
+    .hero-left {}
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 32px;
+    }
+    .hero-tag::before {
+      content: '';
+      width: 24px; height: 1px;
+      background: var(--terra);
+    }
+    .hero-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--gold-dark);
+    }
+    .hero-body {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 420px;
+      margin-bottom: 44px;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 15px 32px;
+      background: var(--text);
+      color: var(--bg);
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border-radius: 100px;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover { background: var(--gold-dark); transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 15px 28px;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      text-decoration: none;
+      border-radius: 100px;
+      border: 1px solid var(--border-dark);
+      transition: all 0.3s ease;
+    }
+    .btn-secondary:hover { color: var(--text); border-color: var(--text); }
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .trust-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* HERO RIGHT */
+    .hero-right {
+      position: relative;
+    }
+    .hero-img-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      box-shadow: 0 32px 80px rgba(28,21,16,0.12);
+    }
+    .hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -24px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 28px;
+      box-shadow: 0 8px 32px rgba(28,21,16,0.1);
+    }
+    .hero-badge-top {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .hero-badge-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--text);
+    }
+    .hero-badge-main span { color: var(--gold-dark); }
+    .hero-floating-tag {
+      position: absolute;
+      top: 24px;
+      right: -16px;
+      background: var(--bg-dark);
+      color: var(--bg);
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pulse-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #4CAF50;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* ── TAGLINE BAND ── */
+    .tagline-band {
+      background: var(--bg-dark);
+      padding: 60px 40px;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .tagline-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 100% at 50% 0%, rgba(201,169,110,0.08) 0%, transparent 70%);
+    }
+    .tagline-band-text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 4rem);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--bg);
+      position: relative;
+    }
+    .tagline-band-text span { color: var(--gold); }
+    .tagline-band-sub {
+      font-size: 0.88rem;
+      color: rgba(250,247,242,0.45);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 12px;
+      position: relative;
+    }
+
+    /* ── SHARED SECTION STYLES ── */
+    .section-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .section-title--light { color: var(--bg); }
+    .section-sub {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+    .section-sub--light { color: rgba(250,247,242,0.6); }
+
+    /* ── PAIN ── */
+    .pain {
+      padding: 100px 0;
+      background: var(--bg-2);
+    }
+    .pain-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .pain-header .section-sub { margin: 0 auto; }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .pain-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      position: relative;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .pain-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(28,21,16,0.08); }
+    .pain-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--border-dark);
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+    .pain-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .pain-desc { font-size: 0.92rem; color: var(--text-muted); line-height: 1.75; }
+    .pain-resolution {
+      margin-top: 80px;
+      text-align: center;
+      padding: 48px 40px;
+      background: var(--bg-dark);
+      border-radius: var(--radius-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    .pain-resolution::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: 50%;
+      transform: translateX(-50%);
+      width: 400px; height: 300px;
+      background: radial-gradient(ellipse, rgba(201,169,110,0.1) 0%, transparent 70%);
+    }
+    .pain-resolution-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+      font-style: italic;
+      color: var(--bg);
+      max-width: 680px;
+      margin: 0 auto 16px;
+      line-height: 1.4;
+      position: relative;
+    }
+    .pain-resolution-quote span { color: var(--gold); }
+    .pain-resolution-attr {
+      font-size: 0.8rem;
+      color: rgba(250,247,242,0.4);
+      letter-spacing: 0.1em;
+      position: relative;
+    }
+
+    /* ── SOLUTION ── */
+    .solution {
+      padding: 100px 0;
+    }
+    .solution-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .solution-features {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-top: 40px;
+    }
+    .feature-row {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .feature-icon {
+      width: 44px; height: 44px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-dark);
+    }
+    .feature-text {}
+    .feature-name {
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+    .feature-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
+    .solution-visual {}
+    .solution-img-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 12px;
+    }
+    .solution-img {
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .solution-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .solution-img:hover img { transform: scale(1.04); }
+    .solution-img--tall { grid-row: span 2; }
+    .solution-img--tall { height: 100%; }
+    .solution-img:not(.solution-img--tall) { height: 180px; }
+
+    /* ── SPACES ── */
+    .spaces {
+      padding: 100px 0;
+      background: var(--bg-2);
+    }
+    .spaces-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .spaces-header .section-sub { margin: 0 auto; }
+    .spaces-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .space-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .space-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(28,21,16,0.1); }
+    .space-card-img {
+      height: 220px;
+      overflow: hidden;
+    }
+    .space-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      filter: brightness(0.92);
+    }
+    .space-card:hover .space-card-img img { transform: scale(1.05); }
+    .space-card-body { padding: 24px; }
+    .space-card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .space-card-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+    .space-card-tag {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terra);
+      background: rgba(181,105,74,0.08);
+      border: 1px solid rgba(181,105,74,0.2);
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+
+    /* ── PRICING ── */
+    .pricing {
+      padding: 100px 0;
+    }
+    .pricing-header { text-align: center; margin-bottom: 64px; }
+    .pricing-header .section-sub { margin: 0 auto; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .pricing-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 44px 36px;
+      position: relative;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      text-align: center;
+    }
+    .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(28,21,16,0.08); }
+    .pricing-card--featured {
+      background: var(--bg-dark);
+      border-color: rgba(201,169,110,0.3);
+    }
+    .pricing-card--featured .pricing-label,
+    .pricing-card--featured .pricing-name,
+    .pricing-card--featured .pricing-desc,
+    .pricing-card--featured .pricing-list li { color: rgba(250,247,242,0.75) !important; }
+    .pricing-card--featured .pricing-amount { color: var(--bg); }
+    .pricing-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--bg-dark);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .pricing-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 12px;
+    }
+    .pricing-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .pricing-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .pricing-amount-pre {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      vertical-align: super;
+      margin-right: 2px;
+    }
+    .pricing-amount-post {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .pricing-desc { font-size: 0.85rem; color: var(--text-muted); margin: 12px 0 28px; line-height: 1.6; }
+    .pricing-divider { width: 40px; height: 1px; background: var(--border-dark); margin: 0 auto 28px; }
+    .pricing-list {
+      list-style: none;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    .pricing-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .pricing-list-check {
+      width: 18px; height: 18px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(201,169,110,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-dark);
+      margin-top: 1px;
+    }
+    .pricing-cta {
+      display: block;
+      text-align: center;
+      padding: 13px 24px;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-dark);
+      color: var(--text);
+    }
+    .pricing-cta:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
+    .pricing-cta--featured {
+      background: var(--gold);
+      color: var(--bg-dark);
+      border-color: var(--gold);
+    }
+    .pricing-cta--featured:hover { background: var(--gold-light); border-color: var(--gold-light); }
+    .pricing-note {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 0.82rem;
+      color: var(--text-light);
+    }
+
+    /* ── COMMUNITY ── */
+    .community {
+      padding: 100px 0;
+      background: var(--bg-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .community::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .community-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .community-text {}
+    .community-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+      font-style: italic;
+      color: rgba(250,247,242,0.85);
+      line-height: 1.5;
+      border-left: 2px solid var(--gold);
+      padding-left: 24px;
+      margin: 36px 0;
+    }
+    .community-quote span { color: var(--gold); font-style: normal; }
+    .community-body {
+      font-size: 0.95rem;
+      color: rgba(250,247,242,0.55);
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+    .founder-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,169,110,0.15);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+    }
+    .founder-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(201,169,110,0.15);
+      border: 1px solid rgba(201,169,110,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .founder-name {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: rgba(250,247,242,0.9);
+      margin-bottom: 2px;
+    }
+    .founder-role { font-size: 0.78rem; color: rgba(250,247,242,0.4); }
+    .community-visual {
+      position: relative;
+    }
+    .community-img-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+    }
+    .community-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      filter: brightness(0.88);
+    }
+    .community-stat-row {
+      position: absolute;
+      bottom: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      white-space: nowrap;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    .community-stat {
+      padding: 18px 28px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .community-stat:last-child { border-right: none; }
+    .community-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1;
+    }
+    .community-stat-label { font-size: 0.72rem; color: var(--text-muted); margin-top: 4px; }
+
+    /* ── GALLERY ── */
+    .gallery {
+      padding: 100px 0 80px;
+    }
+    .gallery-header { text-align: center; margin-bottom: 48px; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 260px 260px;
+      gap: 12px;
+    }
+    .gallery-img {
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--bg-2);
+    }
+    .gallery-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      filter: brightness(0.93);
+    }
+    .gallery-img:hover img { transform: scale(1.04); }
+    .gallery-img:nth-child(1) { grid-column: span 5; }
+    .gallery-img:nth-child(2) { grid-column: span 4; }
+    .gallery-img:nth-child(3) { grid-column: span 3; }
+    .gallery-img:nth-child(4) { grid-column: span 3; }
+    .gallery-img:nth-child(5) { grid-column: span 5; }
+    .gallery-img:nth-child(6) { grid-column: span 4; }
+    .gallery-more {
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    /* ── FAQ ── */
+    .faq {
+      padding: 100px 0;
+      background: var(--bg-2);
+    }
+    .faq-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .faq-header { text-align: center; margin-bottom: 56px; }
+    .faq-header .section-sub { margin: 0 auto; }
+    .faq-list { display: flex; flex-direction: column; gap: 10px; }
+    .faq-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.3s ease;
+    }
+    .faq-item.open { border-color: var(--border-dark); }
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 22px 28px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      user-select: none;
+    }
+    .faq-toggle {
+      width: 28px; height: 28px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--bg-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--terra);
+      transition: transform 0.35s ease;
+    }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-answer-inner { padding: 0 28px 24px; font-size: 0.9rem; color: var(--text-muted); line-height: 1.8; }
+    .faq-item.open .faq-answer { max-height: 300px; }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      padding: 100px 0;
+      background: var(--bg-dark);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 100%, rgba(201,169,110,0.07) 0%, transparent 70%);
+    }
+    .cta-inner { position: relative; max-width: 640px; margin: 0 auto; }
+    .cta-label { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      color: var(--bg);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .cta-title em { font-style: italic; color: var(--gold); }
+    .cta-body { font-size: 1rem; color: rgba(250,247,242,0.5); line-height: 1.7; margin-bottom: 44px; }
+    .cta-actions { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 36px;
+      background: var(--gold);
+      color: var(--bg-dark);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border-radius: 100px;
+      transition: all 0.3s ease;
+    }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,169,110,0.3); }
+    .btn-outline-light {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 28px;
+      color: rgba(250,247,242,0.65);
+      font-size: 0.88rem;
+      text-decoration: none;
+      border-radius: 100px;
+      border: 1px solid rgba(250,247,242,0.15);
+      transition: all 0.3s ease;
+    }
+    .btn-outline-light:hover { color: var(--bg); border-color: rgba(250,247,242,0.4); }
+
+    /* ── CONTACT FORM ── */
+    .contact-section {
+      padding: 100px 0;
+    }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-info {}
+    .contact-info-items { margin-top: 36px; display: flex; flex-direction: column; gap: 20px; }
+    .contact-info-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .contact-info-icon {
+      width: 40px; height: 40px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-dark);
+    }
+    .contact-info-label { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.1em; }
+    .contact-info-value { font-size: 0.95rem; color: var(--text); }
+    .contact-info-value a { color: var(--text); text-decoration: none; }
+    .contact-info-value a:hover { color: var(--gold-dark); }
+    .contact-social { margin-top: 32px; display: flex; gap: 12px; }
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border: 1px solid var(--border-dark);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .social-link:hover { color: var(--text); border-color: var(--text); }
+    form.contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    input, select, textarea {
+      width: 100%;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 13px 16px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      appearance: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: rgba(139,107,69,0.45);
+      box-shadow: 0 0 0 3px rgba(139,107,69,0.07);
+    }
+    input::placeholder, textarea::placeholder { color: var(--text-light); }
+    textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      padding: 15px 32px;
+      background: var(--text);
+      color: var(--bg);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      align-self: flex-start;
+    }
+    .form-submit:hover { background: var(--gold-dark); transform: translateY(-1px); }
+    .success-msg {
+      display: none;
+      padding: 40px;
+      background: var(--bg-2);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    .success-msg.visible { display: block; }
+    .success-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--text); margin-bottom: 8px; }
+    .success-sub { color: var(--text-muted); font-size: 0.9rem; }
+
+    /* ── FOOTER ── */
+    .footer-wrap {
+      background: var(--bg-dark);
+      padding: 64px 0 32px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand-col {}
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--bg);
+      margin-bottom: 16px;
+    }
+    .footer-logo span { color: var(--gold); }
+    .footer-tagline {
+      font-size: 0.85rem;
+      color: rgba(250,247,242,0.4);
+      line-height: 1.7;
+      max-width: 220px;
+    }
+    .footer-col-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(250,247,242,0.35);
+      margin-bottom: 16px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      font-size: 0.88rem;
+      color: rgba(250,247,242,0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+      margin-bottom: 28px;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-copy { font-size: 0.78rem; color: rgba(250,247,242,0.28); }
+    .footer-legal { display: flex; gap: 24px; }
+    .footer-legal a { font-size: 0.78rem; color: rgba(250,247,242,0.28); text-decoration: none; }
+    .footer-legal a:hover { color: rgba(250,247,242,0.55); }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ── KEYFRAMES ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .spaces-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      .hero-layout { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .solution-layout { grid-template-columns: 1fr; }
+      .community-layout { grid-template-columns: 1fr; }
+      .community-stat-row { position: static; transform: none; margin-top: 24px; width: fit-content; }
+      .contact-layout { grid-template-columns: 1fr; }
+      .pain-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gallery-img { height: 200px !important; }
+      .gallery-img:nth-child(n) { grid-column: span 1; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-mobile-toggle { display: flex; }
+      .hero { padding: 88px 24px 48px; }
+      .section-wrap { padding: 0 24px; }
+      .solution-img-grid { grid-template-columns: 1fr; }
+      .solution-img--tall { grid-row: auto; height: 220px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .spaces-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Co<span>Lective</span></a>
+      <ul class="nav-links">
+        <li><a href="#raeume">Räume & Gewerke</a></li>
+        <li><a href="#preise">Preise</a></li>
+        <li><a href="#community">Über uns</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a href="#kontakt" class="nav-cta">Raum anfragen</a>
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section>
+    <div class="hero">
+      <div class="hero-layout">
+        <div class="hero-left">
+          <p class="hero-tag" style="animation: fadeUp 0.7s ease 0.1s both;">Beauty-Coworking · Hamburg-Wandsbek</p>
+          <h1 class="hero-h1" style="animation: fadeUp 0.8s ease 0.2s both;">
+            Selbstständig.<br>
+            <em>Aber nicht allein.</em>
+          </h1>
+          <p class="hero-body" style="animation: fadeUp 0.8s ease 0.35s both;">
+            Vollausgestattete Räume für Beauty-Profis in Hamburg — stundenweise, tagesweise oder monatlich. Ohne das Risiko eines eigenen Salons.
+          </p>
+          <div class="hero-actions" style="animation: fadeUp 0.8s ease 0.5s both;">
+            <a href="#kontakt" class="btn-primary">
+              Raum anfragen
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#preise" class="btn-secondary">Preise ansehen ↓</a>
+          </div>
+          <div class="hero-trust" style="animation: fadeUp 0.8s ease 0.65s both;">
+            <div class="trust-item"><div class="trust-dot"></div>Alle Beauty-Gewerke</div>
+            <div class="trust-item"><div class="trust-dot"></div>Premium Ausstattung</div>
+            <div class="trust-item"><div class="trust-dot"></div>Community inklusive</div>
+          </div>
+        </div>
+        <div class="hero-right" style="animation: fadeUp 0.9s ease 0.3s both;">
+          <div class="hero-floating-tag">
+            <div class="pulse-dot"></div>
+            Plätze verfügbar
+          </div>
+          <div class="hero-img-wrap">
+            <img src="salon-mirror.jpg" alt="CoLective Hamburg — Hairstyling Stationen mit LED-Bögen">
+          </div>
+          <div class="hero-badge">
+            <div class="hero-badge-top">Der Claim</div>
+            <div class="hero-badge-main">YOUR SPACE. <span>YOUR TIME.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAGLINE BAND -->
+  <div class="tagline-band">
+    <p class="tagline-band-text">YOUR SPACE. <span>YOUR TIME.</span></p>
+    <p class="tagline-band-sub">Starte dein eigenes Business ohne eigenen Salon</p>
+  </div>
+
+  <!-- PAIN -->
+  <section class="pain" id="raeume">
+    <div class="section-wrap">
+      <div class="pain-header reveal">
+        <p class="section-label">Erkennst du dich wieder?</p>
+        <h2 class="section-title">Was dich aufhält — und was nicht mehr sein muss</h2>
+        <p class="section-sub">Zwischen dem Traum von Selbstständigkeit und dem eigenen Salon stehen oft drei ganz konkrete Hürden.</p>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card reveal reveal-delay-1">
+          <div class="pain-num">01</div>
+          <h3 class="pain-title">Du arbeitest mobil oder von zuhause</h3>
+          <p class="pain-desc">Kein eigener Raum, keine professionelle Atmosphäre — du kannst Premium-Kunden nicht das Erlebnis bieten, das du eigentlich möchtest. Und weißt genau, dass dir das Umsatz kostet.</p>
+        </div>
+        <div class="pain-card reveal reveal-delay-2">
+          <div class="pain-num">02</div>
+          <h3 class="pain-title">Du bist angestellt — aber unglücklich</h3>
+          <p class="pain-desc">Du gibst täglich dein Bestes für jemand anderen. Deine Kunden, deine Marke, dein Umsatz — alles fließt woanders hin. Der Gedanke an Selbstständigkeit ist verlockend, aber das Risiko hält dich zurück.</p>
+        </div>
+        <div class="pain-card reveal reveal-delay-3">
+          <div class="pain-num">03</div>
+          <h3 class="pain-title">Ein eigener Salon — theoretisch</h3>
+          <p class="pain-desc">Mietvertrag, Umbau, Ausstattung, laufende Kosten — das sind schnell 5-stellige Investitionen bevor der erste Kunde durch die Tür kommt. Zu viel Risiko, zu viel allein zu stemmen.</p>
+        </div>
+      </div>
+      <div class="pain-resolution reveal">
+        <p class="pain-resolution-quote">
+          „Endlich habe ich genau das gefunden, das zu mir und meinem Lebensstil passt. Hier fühle ich mich wohl, sicher — und bin motiviert, <span>200 % zu geben</span>."
+        </p>
+        <p class="pain-resolution-attr">— Das Gefühl, das CoLective gibt</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="solution">
+    <div class="section-wrap">
+      <div class="solution-layout">
+        <div class="solution-text reveal">
+          <p class="section-label">Was CoLective dir gibt</p>
+          <h2 class="section-title">Alles, was du für dein Business brauchst. Ohne das Risiko.</h2>
+          <p class="section-sub">Kein Mietvertrag. Keine Investition in Ausstattung. Keine leeren Versprechen. Nur ein vollausgestatteter, professioneller Raum — wenn du ihn brauchst.</p>
+          <div class="solution-features">
+            <div class="feature-row">
+              <div class="feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              </div>
+              <div class="feature-text">
+                <div class="feature-name">Vollausgestattete Stationen</div>
+                <div class="feature-desc">Profi-Equipment für Hair, Kosmetik, PMU, Nails & Make-up — direkt einsatzbereit, ohne Eigeninvestition.</div>
+              </div>
+            </div>
+            <div class="feature-row">
+              <div class="feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+              </div>
+              <div class="feature-text">
+                <div class="feature-name">Flexible Buchung — deine Bedingungen</div>
+                <div class="feature-desc">Stündlich, täglich oder monatlich. Du buchst genau was du brauchst — keine Mindestlaufzeit, kein Risiko.</div>
+              </div>
+            </div>
+            <div class="feature-row">
+              <div class="feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div class="feature-text">
+                <div class="feature-name">Community — die eine Hand wäscht die andere</div>
+                <div class="feature-desc">Du bist selbstständig, aber nicht allein. Synergieeffekte, gegenseitige Empfehlungen, echte Unterstützung.</div>
+              </div>
+            </div>
+            <div class="feature-row">
+              <div class="feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="feature-text">
+                <div class="feature-name">Professionelle Atmosphäre für Premium-Kunden</div>
+                <div class="feature-desc">Ästhetisches Ambiente, das den Rahmen setzt, den deine Kunden erwarten — und für das sie bereit sind, mehr zu zahlen.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="solution-visual reveal">
+          <div class="solution-img-grid">
+            <div class="solution-img solution-img--tall">
+              <img src="group.jpg" alt="Beauty-Profis bei CoLective Hamburg" style="height:100%; min-height:360px;">
+            </div>
+            <div class="solution-img">
+              <img src="detail-gold.jpg" alt="Premium Ausstattung bei CoLective">
+            </div>
+            <div class="solution-img">
+              <img src="hairstyle.jpg" alt="Professionelles Hairstyling bei CoLective">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPACES -->
+  <section class="spaces">
+    <div class="section-wrap">
+      <div class="spaces-header reveal">
+        <p class="section-label">Unsere Räume</p>
+        <h2 class="section-title">Für jedes Gewerk der perfekte Platz</h2>
+        <p class="section-sub">Ob Hair, Beauty, PMU oder Nails — CoLective ist auf alle Beauty-Profis ausgelegt. Vollausgestattet, ästhetisch, professionell.</p>
+      </div>
+      <div class="spaces-grid">
+        <div class="space-card reveal">
+          <div class="space-card-img">
+            <img src="salon-mirror.jpg" alt="Hair Styling Stationen bei CoLective" style="object-position: center;">
+          </div>
+          <div class="space-card-body">
+            <h3 class="space-card-name">Hair & Styling</h3>
+            <p class="space-card-desc">Professionelle Styling-Stationen mit Dyson-Equipment, LED-Bogen-Spiegeln und allem was du brauchst.</p>
+            <span class="space-card-tag">Friseur · Hair Stylist</span>
+          </div>
+        </div>
+        <div class="space-card reveal reveal-delay-1">
+          <div class="space-card-img">
+            <img src="detail-gold.jpg" alt="Kosmetik & Beauty bei CoLective" style="object-position: center;">
+          </div>
+          <div class="space-card-body">
+            <h3 class="space-card-name">Kosmetik & Beauty</h3>
+            <p class="space-card-desc">Professionell ausgestattete Kabinen für Kosmetik, Wimpern, Nails und Massagen.</p>
+            <span class="space-card-tag">Kosmetikerin · Nageldesign · Wimpern</span>
+          </div>
+        </div>
+        <div class="space-card reveal reveal-delay-2">
+          <div class="space-card-img">
+            <img src="scissors.jpg" alt="PMU & Make-up bei CoLective" style="object-position: center 40%;">
+          </div>
+          <div class="space-card-body">
+            <h3 class="space-card-name">PMU & Make-up</h3>
+            <p class="space-card-desc">Präzise Beleuchtung, cleane Arbeitsatmosphäre — ideal für Permanent Make-up Artists und Make-up Stylist:innen.</p>
+            <span class="space-card-tag">PMU Artist · Make-up Artist</span>
+          </div>
+        </div>
+        <div class="space-card reveal reveal-delay-3">
+          <div class="space-card-img">
+            <img src="exterior.jpg" alt="CoLective Hamburg Exterior">
+          </div>
+          <div class="space-card-body">
+            <h3 class="space-card-name">Der Space</h3>
+            <p class="space-card-desc">Mitten in Hamburg-Wandsbek — gut erreichbar, ebenerdige Lage, eigene Parkplätze in der Nähe.</p>
+            <span class="space-card-tag">Brauhausstieg 47 · 22041 HH</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="preise">
+    <div class="section-wrap">
+      <div class="pricing-header reveal">
+        <p class="section-label">Transparent & Fair</p>
+        <h2 class="section-title">Preise, die zu deinem Business passen</h2>
+        <p class="section-sub">Keine versteckten Kosten. Kein langes Commitment. Du wählst, wie du arbeiten möchtest.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card reveal">
+          <p class="pricing-label">Flexibel</p>
+          <h3 class="pricing-name">Stundenweise</h3>
+          <div class="pricing-amount">
+            <span class="pricing-amount-pre">ab</span>XX
+            <span class="pricing-amount-post">€/Std</span>
+          </div>
+          <p class="pricing-desc">Für spontane Termine und Aushilfe — buche genau die Stunden, die du brauchst.</p>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-list">
+            <li><div class="pricing-list-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Vollausgestattete Station</li>
+            <li><div class="pricing-list-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>WLAN & Infrastruktur</li>
+            <li><div class="pricing-list-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Mindestbuchung 2 Stunden</li>
+          </ul>
+          <a href="#kontakt" class="pricing-cta">Anfragen</a>
+        </div>
+
+        <div class="pricing-card pricing-card--featured reveal reveal-delay-1">
+          <div class="pricing-badge">Beliebteste Wahl</div>
+          <p class="pricing-label" style="color: var(--gold);">Planbar</p>
+          <h3 class="pricing-name" style="color: var(--bg);">Tagesweise</h3>
+          <div class="pricing-amount">
+            <span class="pricing-amount-pre" style="color: rgba(250,247,242,0.5);">ab</span>XX
+            <span class="pricing-amount-post" style="color: rgba(250,247,242,0.5);">€/Tag</span>
+          </div>
+          <p class="pricing-desc">Perfekt für einen vollen Arbeitstag mit mehreren Kunden — ein fester Rhythmus ohne monatliche Kosten.</p>
+          <div class="pricing-divider" style="background: rgba(201,169,110,0.3);"></div>
+          <ul class="pricing-list">
+            <li><div class="pricing-list-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Ganztägige Nutzung</li>
+            <li><div class="pricing-list-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Eigene Station reserviert</li>
+            <li><div class="pricing-list-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Community & Netzwerk</li>
+          </ul>
+          <a href="#kontakt" class="pricing-cta pricing-cta--featured">Anfragen</a>
+        </div>
+
+        <div class="pricing-card reveal reveal-delay-2">
+          <p class="pricing-label">Festigkeit</p>
+          <h3 class="pricing-name">Monatlich</h3>
+          <div class="pricing-amount">
+            <span class="pricing-amount-pre">ab</span>XX
+            <span class="pricing-amount-post">€/Monat</span>
+          </div>
+          <p class="pricing-desc">Für alle, die regelmäßig und professionell arbeiten wollen — dein fester Platz, dein Revier.</p>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-list">
+            <li><div class="pricing-list-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Feste Station / Kabine</li>
+            <li><div class="pricing-list-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Erweiterte Community-Vorteile</li>
+            <li><div class="pricing-list-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Finanzberater-Zugang</li>
+          </ul>
+          <a href="#kontakt" class="pricing-cta">Anfragen</a>
+        </div>
+      </div>
+      <p class="pricing-note reveal">Alle Preise auf Anfrage — wir finden gemeinsam das passende Modell für dein Business.</p>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section class="community" id="community">
+    <div class="section-wrap">
+      <div class="community-layout">
+        <div class="community-text reveal">
+          <p class="section-label" style="color: var(--gold);">Unsere Geschichte</p>
+          <h2 class="section-title section-title--light">Nicht nur ein Raum.<br>Eine Gemeinschaft.</h2>
+          <div class="community-quote">
+            „Sharing & Caring — das, was mich zurückgehalten hat, um mich selbstständig zu machen. Ich wollte anderen die Möglichkeit geben und gleichzeitig Mut machen, <span>die Selbstständigkeit zu wagen.</span>"
+          </div>
+          <p class="community-body">
+            CoLective ist aus echtem Erleben entstanden. Solmaz Ashrafi weiß, was einen beim Schritt in die Selbstständigkeit aufhält — weil sie es selbst erlebt hat. Deshalb hat sie einen Ort geschaffen, an dem die eine Hand die andere wäscht. Wo Synergieeffekte entstehen. Wo du wächst, weil andere mit dir wachsen.
+          </p>
+          <div class="founder-card">
+            <div class="founder-avatar">S</div>
+            <div>
+              <div class="founder-name">Solmaz Ashrafi</div>
+              <div class="founder-role">Gründerin · CoLective Hamburg</div>
+            </div>
+          </div>
+        </div>
+        <div class="community-visual reveal">
+          <div class="community-img-wrap">
+            <img src="group.jpg" alt="Das CoLective Team beim Eröffnungstag">
+          </div>
+          <div class="community-stat-row">
+            <div class="community-stat">
+              <div class="community-stat-num">5+</div>
+              <div class="community-stat-label">Gewerke</div>
+            </div>
+            <div class="community-stat">
+              <div class="community-stat-num">HH</div>
+              <div class="community-stat-label">Wandsbek</div>
+            </div>
+            <div class="community-stat">
+              <div class="community-stat-num">3×</div>
+              <div class="community-stat-label">Buchungsmodelle</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery">
+    <div class="section-wrap">
+      <div class="gallery-header reveal">
+        <p class="section-label">Der Space</p>
+        <h2 class="section-title">Schau dich um</h2>
+      </div>
+      <div class="gallery-grid reveal">
+        <div class="gallery-img"><img src="group.jpg" alt="CoLective Team" style="object-position: center 15%;"></div>
+        <div class="gallery-img"><img src="salon-mirror.jpg" alt="Hair Stationen CoLective" style="object-position: center;"></div>
+        <div class="gallery-img"><img src="hairstyle.jpg" alt="Hairstyling bei CoLective"></div>
+        <div class="gallery-img"><img src="scissors.jpg" alt="Haircutting bei CoLective"></div>
+        <div class="gallery-img"><img src="detail-gold.jpg" alt="Premium Details CoLective"></div>
+        <div class="gallery-img"><img src="exterior.jpg" alt="CoLective Exterior Hamburg"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="faq-inner">
+      <div class="faq-header reveal">
+        <p class="section-label">Häufige Fragen</p>
+        <h2 class="section-title">Alles, was du wissen möchtest</h2>
+        <p class="section-sub">Nicht dabei? Ruf uns einfach an oder schreib uns.</p>
+      </div>
+      <div class="faq-list reveal">
+
+        <div class="faq-item">
+          <div class="faq-question">Für wen ist CoLective geeignet?
+            <div class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">CoLective richtet sich an alle Beauty-Profis in Hamburg: Friseur:innen, Kosmetiker:innen, PMU Artists, Nageldesigner:innen, Wimpernstylist:innen, Make-up Artists und mehr. Egal ob du dich gerade selbstständig machst oder schon etabliert bist — wenn du professionell arbeitest und Qualität lieber lebst als kompromitierst, bist du bei uns richtig.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Muss ich einen langfristigen Vertrag unterschreiben?
+            <div class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">Nein. Du kannst stundenweise oder tageweise buchen — ganz ohne Mindestlaufzeit. Für monatliche Mieter gibt es flexible Vereinbarungen, die zu deiner Situation passen. Wir wissen, dass Selbstständigkeit Flexibilität braucht.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Was ist in der Miete alles enthalten?
+            <div class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">In der Nutzung enthalten: die vollausgestattete Station bzw. Kabine für dein Gewerk, WLAN, Strom, Reinigungsservice und Zugang zur CoLective Community. Verbrauchsmaterial bringst du selbst mit — alles andere steht bereit.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Ich mache mich gerade erst selbstständig — bin ich trotzdem willkommen?
+            <div class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">Absolut — und das ist genau für dich gemacht. CoLective gibt dir das professionelle Fundament, das du für den Einstieg brauchst, ohne das volle Risiko. Dazu steht dir sogar ein Finanzberater zur Verfügung, der bei den ersten Schritten hilft.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Kann ich als Mieter:in meine eigenen Kunden mitbringen?
+            <div class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">Ja, selbstverständlich. Der Raum gehört dir während deiner Buchungszeit — du arbeitest auf eigene Rechnung, mit deinen Kunden, unter deiner Marke. CoLective stellt die Infrastruktur, du baust dein Business.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Wie läuft die Buchung ab?
+            <div class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">Schick uns eine Anfrage über das Kontaktformular oder ruf direkt an. Wir klären gemeinsam dein Gewerk, deine Wunschzeiten und welches Modell am besten zu dir passt — und dann kann es meistens sehr schnell losgehen.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Wo genau befindet sich CoLective?
+            <div class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">Brauhausstieg 47, 22041 Hamburg-Wandsbek. Gut erreichbar mit der U1 (Wandsbek-Markt) — und Parkplätze findest du direkt in der Umgebung.</div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="section-wrap">
+      <div class="cta-inner reveal">
+        <p class="cta-label">Bereit?</p>
+        <h2 class="cta-title">Dein Business.<br><em>Dein Raum. Deine Zeit.</em></h2>
+        <p class="cta-body">Der Schritt in die Selbstständigkeit muss nicht allein und nicht risikoreich sein. Komm einfach vorbei oder schreib uns — wir zeigen dir, wie CoLective zu deinem Business passt.</p>
+        <div class="cta-actions">
+          <a href="#kontakt" class="btn-gold">
+            Raum anfragen
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="tel:+4915565484121" class="btn-outline-light">0155 6548 4121</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="kontakt">
+    <div class="section-wrap">
+      <div class="contact-layout">
+        <div class="contact-info reveal">
+          <p class="section-label">Kontakt</p>
+          <h2 class="section-title">Schreib uns</h2>
+          <p class="section-sub">Fragen, Besichtigungstermin oder direkt loslegen — wir melden uns innerhalb von 24 Stunden.</p>
+          <div class="contact-info-items">
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div class="contact-info-label">Adresse</div>
+                <div class="contact-info-value">Brauhausstieg 47, 22041 Hamburg-Wandsbek</div>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.64a16 16 0 0 0 5.55 5.55l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 15.47z"/></svg>
+              </div>
+              <div>
+                <div class="contact-info-label">Telefon</div>
+                <div class="contact-info-value"><a href="tel:+4915565484121">0155 6548 4121</a></div>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <div class="contact-info-label">E-Mail</div>
+                <div class="contact-info-value"><a href="mailto:info@colective.de">info@colective.de</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-social">
+            <a href="https://instagram.com/colectivehamburg" target="_blank" rel="noopener" class="social-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+              @colectivehamburg
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="success-msg" id="successMsg">
+            <h3 class="success-title">Danke für deine Anfrage!</h3>
+            <p class="success-sub">Wir melden uns innerhalb von 24 Stunden persönlich bei dir.</p>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <!-- WEB3FORMS: ersetze DEIN-ACCESS-KEY → web3forms.com/create → info@colective.de -->
+            <input type="hidden" name="access_key" value="DEIN-ACCESS-KEY">
+            <input type="hidden" name="subject" value="Neue Anfrage – CoLective Hamburg">
+            <input type="hidden" name="from_name" value="CoLective Website">
+            <input type="checkbox" name="botcheck" style="display:none">
+            <div class="form-row">
+              <div>
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" placeholder="Dein Name" required>
+              </div>
+              <div>
+                <label for="phone">Telefon</label>
+                <input type="tel" id="phone" name="phone" placeholder="+49 ...">
+              </div>
+            </div>
+            <div>
+              <label for="email">E-Mail *</label>
+              <input type="email" id="email" name="email" placeholder="deine@email.de" required>
+            </div>
+            <div>
+              <label for="gewerk">Dein Gewerk</label>
+              <select id="gewerk" name="gewerk">
+                <option value="" disabled selected>Bitte wählen</option>
+                <option>Friseur / Hair Stylist</option>
+                <option>Kosmetikerin</option>
+                <option>PMU Artist</option>
+                <option>Nageldesign</option>
+                <option>Make-up Artist</option>
+                <option>Wimpernstylistin</option>
+                <option>Masseur / Ästhetik-Medizin</option>
+                <option>Sonstiges</option>
+              </select>
+            </div>
+            <div>
+              <label for="message">Deine Anfrage</label>
+              <textarea id="message" name="message" placeholder="Wann möchtest du starten? Was brauchst du? Welches Modell interessiert dich?"></textarea>
+            </div>
+            <button type="submit" class="form-submit">Anfrage senden →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-wrap">
+    <div class="section-wrap">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <div class="footer-logo">Co<span>Lective</span> Coworking</div>
+          <p class="footer-tagline">Vollausgestattete Räume für Beauty-Profis in Hamburg-Wandsbek. Selbstständig. Aber nicht allein.</p>
+        </div>
+        <div>
+          <p class="footer-col-title">Navigation</p>
+          <ul class="footer-links">
+            <li><a href="#raeume">Räume & Gewerke</a></li>
+            <li><a href="#preise">Preise</a></li>
+            <li><a href="#community">Über uns</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Gewerke</p>
+          <ul class="footer-links">
+            <li><a href="#kontakt">Hair & Styling</a></li>
+            <li><a href="#kontakt">Kosmetik & Beauty</a></li>
+            <li><a href="#kontakt">PMU & Make-up</a></li>
+            <li><a href="#kontakt">Nails & Wimpern</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Kontakt</p>
+          <ul class="footer-links">
+            <li><a href="tel:+4915565484121">0155 6548 4121</a></li>
+            <li><a href="mailto:info@colective.de">info@colective.de</a></li>
+            <li><a href="https://instagram.com/colectivehamburg" target="_blank" rel="noopener">@colectivehamburg</a></li>
+            <li><a href="https://maps.google.com/?q=Brauhausstieg+47+Hamburg" target="_blank" rel="noopener">Brauhausstieg 47, 22041 HH</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 CoLective GmbH · Hamburg</p>
+        <div class="footer-legal">
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── NAV SCROLL ──
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ── SCROLL REVEAL ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── FAQ ──
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // ── FORM ──
+    const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('successMsg');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('.form-submit');
+      btn.textContent = 'Wird gesendet…';
+      btn.disabled = true;
+
+      const key = form.querySelector('[name="access_key"]').value;
+      if (!key || key === 'DEIN-ACCESS-KEY') {
+        await new Promise(r => setTimeout(r, 1000));
+        form.style.display = 'none';
+        successMsg.classList.add('visible');
+        return;
+      }
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) });
+        const json = await res.json();
+        if (json.success) { form.style.display = 'none'; successMsg.classList.add('visible'); }
+        else throw new Error();
+      } catch {
+        btn.textContent = 'Fehler – bitte ruf uns an';
+        btn.style.background = '#c0392b';
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
