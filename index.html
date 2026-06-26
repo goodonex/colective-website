@@ -686,6 +686,14 @@
       background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 70%);
       pointer-events: none;
     }
+    .botanical {
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 320px;
+      opacity: 0.07;
+      pointer-events: none;
+      color: var(--cream);
+    }
     .community-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1417,6 +1425,40 @@
   <!-- COMMUNITY -->
   <section class="community" id="community">
     <div class="section-wrap">
+      <!-- Botanische Dekoration — dezent, für Solmaz -->
+      <svg class="botanical" viewBox="0 0 320 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Hauptstiel -->
+        <path d="M160 420 C158 380 155 340 158 300 C161 260 156 220 160 180 C164 140 158 100 162 60" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        <!-- Blatt links unten -->
+        <path d="M158 310 C135 295 108 280 90 260 C115 270 140 288 158 310Z" stroke="currentColor" stroke-width="1.2" fill="none"/>
+        <path d="M90 260 C100 252 115 258 130 268" stroke="currentColor" stroke-width="0.8" stroke-linecap="round"/>
+        <!-- Blatt rechts -->
+        <path d="M160 270 C185 252 210 240 228 218 C205 232 182 248 160 270Z" stroke="currentColor" stroke-width="1.2" fill="none"/>
+        <path d="M228 218 C218 212 205 218 192 228" stroke="currentColor" stroke-width="0.8" stroke-linecap="round"/>
+        <!-- Blatt links mitte -->
+        <path d="M157 220 C132 208 110 192 95 170 C118 182 142 200 157 220Z" stroke="currentColor" stroke-width="1.2" fill="none"/>
+        <!-- Zweig rechts mit Knospe -->
+        <path d="M161 160 C182 148 200 132 212 112" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M212 112 C212 100 208 90 204 80 C210 86 216 98 212 112Z" stroke="currentColor" stroke-width="1" fill="none"/>
+        <ellipse cx="210" cy="74" rx="7" ry="12" stroke="currentColor" stroke-width="1" transform="rotate(-10 210 74)"/>
+        <!-- Blatt am Zweig -->
+        <path d="M200 138 C188 126 180 112 178 96 C186 108 196 124 200 138Z" stroke="currentColor" stroke-width="1" fill="none"/>
+        <!-- Hauptblüte -->
+        <circle cx="162" cy="44" r="6" stroke="currentColor" stroke-width="1.2"/>
+        <!-- Blütenblätter -->
+        <path d="M162 44 C162 26 154 14 162 8 C170 14 162 26 162 44Z" stroke="currentColor" stroke-width="1" fill="none"/>
+        <path d="M162 44 C145 38 136 26 140 16 C148 22 158 36 162 44Z" stroke="currentColor" stroke-width="1" fill="none"/>
+        <path d="M162 44 C178 38 188 26 184 16 C176 22 166 36 162 44Z" stroke="currentColor" stroke-width="1" fill="none"/>
+        <path d="M162 44 C148 52 138 64 144 72 C152 66 160 52 162 44Z" stroke="currentColor" stroke-width="1" fill="none"/>
+        <path d="M162 44 C176 52 186 64 180 72 C172 66 164 52 162 44Z" stroke="currentColor" stroke-width="1" fill="none"/>
+        <!-- Kleine Knospe links oben -->
+        <path d="M158 100 C145 88 136 74 138 62" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+        <ellipse cx="136" cy="56" rx="5.5" ry="9" stroke="currentColor" stroke-width="1" transform="rotate(-18 136 56)"/>
+        <path d="M136 47 C130 38 130 28 136 22 C142 28 142 38 136 47Z" stroke="currentColor" stroke-width="0.9" fill="none"/>
+        <!-- Kleine Blätter Knospe -->
+        <path d="M133 62 C124 56 120 46 124 38 C128 46 132 56 133 62Z" stroke="currentColor" stroke-width="0.9" fill="none"/>
+      </svg>
+
       <div class="community-layout">
         <div class="community-text reveal">
           <p class="section-label" style="color: var(--gold);">Unsere Geschichte</p>
